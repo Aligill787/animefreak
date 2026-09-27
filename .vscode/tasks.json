@@ -1,0 +1,65 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install project dependencies",
+			"type": "shell",
+			"command": "C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd",
+			"args": [
+				"install"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install project dependencies",
+			"type": "shell",
+			"command": "C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd",
+			"args": [
+				"install"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install project dependencies",
+			"type": "shell",
+			"command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$env:Path='C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs;'+$env:Path; & 'C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd' install"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install dependencies with local Node",
+			"type": "shell",
+			"command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$env:Path='C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs;'+$env:Path; & 'C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd' install"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install with local Node PATH",
+			"type": "shell",
+			"command": "$env:Path='C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs;'+$env:Path; & 'C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd' install",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build site locally",
+			"type": "shell",
+			"command": "$env:Path='C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs;'+$env:Path; & 'C:\\Users\\ali\\AppData\\Local\\Programs\\nodejs\\npm.cmd' run build",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

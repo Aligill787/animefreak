@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeFreak – Stories beyond the screen</title>
+    <meta name="description" content="Independent anime & manga culture magazine, original storytelling platform, AI-assisted manga releases, and digital publication store." />
+    <link rel="canonical" href="https://animefreak.culture" />
+    
+    <!-- OpenGraph -->
+    <meta property="og:site_name" content="AnimeFreak" />
+    <meta property="og:title" content="AnimeFreak – Stories beyond the screen" />
+    <meta property="og:description" content="Independent anime & manga culture magazine, original storytelling platform, AI-assisted manga releases, and digital publication store." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://animefreak.culture" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AnimeFreak – Stories beyond the screen" />
+    <meta name="twitter:description" content="Discover original anime-inspired stories, creative articles, AI-generated manga and digital collections." />
+    
+    <!-- Google Fonts: Syne (Display) + Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://animefreak.culture/#organization",
+          "name": "AnimeFreak",
+          "url": "https://animefreak.culture",
+          "logo": "https://animefreak.culture/icon.png",
+          "description": "Independent anime & manga culture magazine, original storytelling platform, and digital publishing store.",
+          "sameAs": [
+            "https://twitter.com/animefreak_pub",
+            "https://instagram.com/animefreak_mag",
+            "https://youtube.com/@animefreak_culture"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://animefreak.culture/#website",
+          "url": "https://animefreak.culture",
+          "name": "AnimeFreak",
+          "publisher": {
+            "@id": "https://animefreak.culture/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://animefreak.culture/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#08090e] text-slate-100 antialiased selection:bg-purple-600 selection:text-white min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

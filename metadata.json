@@ -1,0 +1,6 @@
+{
+  "name": "AnimeFreak – Stories beyond the screen",
+  "description": "Independent anime & manga culture magazine, original storytelling platform, AI-assisted manga releases, and digital publication store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

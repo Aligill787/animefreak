@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, Star, Sparkles, ShoppingBag, Eye, Calendar, User, ShieldCheck, Check, MessageSquare } from 'lucide-react';
-import { MANGA_ITEMS, PRODUCTS } from '../data/mockData';
+import { MANGA_ITEMS, PRODUCTS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { Manga, Product, PageRoute } from '../types';
 import { AdPlaceholder } from '../components/AdPlaceholder';
 
@@ -17,6 +18,7 @@ export const MangaDetailPage: React.FC<MangaDetailPageProps> = ({
   onOpenMangaReader,
   onAddToCart,
 }) => {
+    const { manga: MANGA_ITEMS, products: PRODUCTS } = useContent();
   const manga = MANGA_ITEMS.find((m) => m.slug === mangaSlug) || MANGA_ITEMS[0];
   const [reviews, setReviews] = useState(manga.reviews || []);
   const [newReviewAuthor, setNewReviewAuthor] = useState('');

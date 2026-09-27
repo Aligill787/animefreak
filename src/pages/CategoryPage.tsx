@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, BookOpen, ArrowRight } from 'lucide-react';
-import { ARTICLES, CATEGORIES } from '../data/mockData';
+import { ARTICLES, CATEGORIES } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 import { AdPlaceholder } from '../components/AdPlaceholder';
 
@@ -13,6 +14,7 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
   categorySlug,
   onNavigate,
 }) => {
+    const { articles: ARTICLES, categories: CATEGORIES } = useContent();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 

@@ -26,6 +26,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   const [orderComplete, setOrderComplete] = useState(false);
   const [checkoutEmail, setCheckoutEmail] = useState('');
   const [orderId, setOrderId] = useState('');
+  const [checkoutError, setCheckoutError] = useState('');
 
   if (!isOpen) return null;
 
@@ -40,20 +41,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     setIsCheckingOut(true);
   };
 
-  const handleCompleteSimulatedCheckout = (e: React.FormEvent) => {
+  const handleStartWooCommerceCheckout = (e: React.FormEvent) => {
     e.preventDefault();
     if (!checkoutEmail || !checkoutEmail.includes('@')) return;
 
-    const generatedId = `AF-${Math.floor(100000 + Math.random() * 900000)}`;
-    setOrderId(generatedId);
-    setOrderComplete(true);
-    onClearCart();
+    if (!siteConfig.woocommerceCheckoutUrl) {
+      setCheckoutError('WooCommerce checkout is not configured yet.');
+      return;
+    }
+
+    window.location.assign(siteConfig.woocommerceCheckoutUrl);
   };
 
   const handleCloseAll = () => {
     setIsCheckingOut(false);
     setOrderComplete(false);
     setCheckoutEmail('');
+    setCheckoutError('');
     onClose();
   };
 
@@ -122,10 +126,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               /* Payment Provider Integration Layer */
               <div className="space-y-4 animate-fadeIn">
                 <div className="p-3.5 rounded-xl border border-purple-500/30 bg-purple-950/20 text-xs text-purple-200">
-                  <strong>Production Payment Gateway Layer:</strong> Configured for <code>{siteConfig.paymentProvider}</code> (Stripe / PayPal sandbox). No real charges occur in this preview mode.
+                  <strong>Secure WooCommerce Checkout:</strong> Your cart, payment, order, and download permissions will be handled by WooCommerce.
                 </div>
 
-                <form onSubmit={handleCompleteSimulatedCheckout} className="space-y-3.5">
+                <form onSubmit={handleStartWooCommerceCheckout} className="space-y-3.5">
                   <div className="space-y-1">
                     <label className="text-xs font-medium text-slate-300">
                       Digital Delivery Email *
@@ -145,15 +149,19 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                   <div className="space-y-1">
                     <label className="text-xs font-medium text-slate-300">
-                      Card Details (Simulated Test Mode)
+                      Payment Details
                     </label>
                     <input
                       type="text"
                       disabled
-                      value="•••• •••• •••• 4242  (Stripe Test Account)"
+                      value="Payment is completed securely on WooCommerce"
                       className="w-full px-3 py-2.5 rounded-xl border border-white/5 bg-[#06070a]/60 text-xs font-mono text-slate-400 cursor-not-allowed"
                     />
                   </div>
+
+                  {checkoutError && (
+                    <p className="text-xs text-amber-300" role="alert">{checkoutError}</p>
+                  )}
 
                   <div className="p-3 rounded-xl bg-white/5 border border-white/8 space-y-1.5 text-xs">
                     <div className="flex justify-between text-slate-400">
@@ -182,7 +190,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       type="submit"
                       className="w-2/3 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-xs font-semibold text-white shadow-md shadow-purple-900/30 transition-all cursor-pointer"
                     >
-                      Authorize & Download
+                      Continue to Checkout
                     </button>
                   </div>
                 </form>

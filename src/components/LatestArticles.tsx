@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Clock, Calendar, BookOpen } from 'lucide-react';
-import { ARTICLES } from '../data/mockData';
+  import { useContent } from '../data/ContentProvider';
+  const { articles: ARTICLES } = useContent();
 import { PageRoute } from '../types';
 
 interface LatestArticlesProps {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, BookOpen, Compass, Sparkles } from 'lucide-react';
-import { ASSETS } from '../data/mockData';
+  import { useContent } from '../data/ContentProvider';
+  const { assets: ASSETS } = useContent();
 import { PageRoute } from '../types';
 
 interface HeroProps {

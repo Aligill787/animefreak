@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, Calendar, Clock, Share2, Bookmark, Check, User, Sparkles, BookOpen } from 'lucide-react';
-import { ARTICLES } from '../data/mockData';
+import { ARTICLES } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 import { AdPlaceholder } from '../components/AdPlaceholder';
 import { Newsletter } from '../components/Newsletter';
@@ -14,6 +15,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   articleSlug,
   onNavigate,
 }) => {
+    const { articles: ARTICLES } = useContent();
   const article = ARTICLES.find((a) => a.slug === articleSlug) || ARTICLES[0];
   const relatedArticles = ARTICLES.filter((a) => a.id !== article.id).slice(0, 3);
 

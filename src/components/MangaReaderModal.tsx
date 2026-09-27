@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2, Minimize2, ZoomIn, ZoomOut, Sparkles, BookOpen } from 'lucide-react';
-import { MANGA_ITEMS } from '../data/mockData';
+import { MANGA_ITEMS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 
 interface MangaReaderModalProps {
   mangaId: string | null;
@@ -11,6 +12,7 @@ export const MangaReaderModal: React.FC<MangaReaderModalProps> = ({
   mangaId,
   onClose,
 }) => {
+    const { manga: MANGA_ITEMS } = useContent();
   const [currentPage, setCurrentPage] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);

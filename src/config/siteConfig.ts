@@ -15,6 +15,7 @@ export const siteConfig = {
   
   // Payment Integration Provider (Stripe, PayPal, Lemonsqueezy, etc.)
   paymentProvider: import.meta.env.VITE_PAYMENT_PROVIDER || 'stripe_placeholder',
+  woocommerceCheckoutUrl: import.meta.env.VITE_WOOCOMMERCE_CHECKOUT_URL || '',
   
   // Social Links
   socials: {

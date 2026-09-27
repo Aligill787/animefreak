@@ -1,6 +1,7 @@
 import React from 'react';
 import { Eye, Info, Sparkles, BookOpen, Star, ArrowRight } from 'lucide-react';
-import { MANGA_ITEMS } from '../data/mockData';
+import { MANGA_ITEMS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 
 interface OriginalAiMangaProps {
@@ -12,6 +13,7 @@ export const OriginalAiManga: React.FC<OriginalAiMangaProps> = ({
   onNavigate,
   onOpenMangaReader,
 }) => {
+    const { manga: MANGA_ITEMS } = useContent();
   return (
     <section className="py-14 sm:py-20 relative">
       {/* Background ambient glow */}

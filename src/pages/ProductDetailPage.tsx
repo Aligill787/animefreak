@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ShoppingBag, Download, Check, ShieldCheck, FileText, Sparkles } from 'lucide-react';
-import { PRODUCTS } from '../data/mockData';
+import { PRODUCTS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { Product, PageRoute } from '../types';
 import { AdPlaceholder } from '../components/AdPlaceholder';
 
@@ -17,6 +18,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   onAddToCart,
   onBuyNow,
 }) => {
+    const { products: PRODUCTS } = useContent();
   const product = PRODUCTS.find((p) => p.slug === productSlug) || PRODUCTS[0];
   const [isAdded, setIsAdded] = useState(false);
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, Clock, User, ChevronRight, Sparkles, Type } from 'lucide-react';
-import { STORIES } from '../data/mockData';
+import { STORIES } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 import { AdPlaceholder } from '../components/AdPlaceholder';
 
@@ -13,6 +14,7 @@ export const StoryDetailPage: React.FC<StoryDetailPageProps> = ({
   storySlug,
   onNavigate,
 }) => {
+    const { stories: STORIES } = useContent();
   const story = STORIES.find((s) => s.slug === storySlug) || STORIES[0];
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');

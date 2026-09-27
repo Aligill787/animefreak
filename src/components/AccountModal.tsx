@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { X, User, Download, Bookmark, Sparkles, LogIn, CheckCircle } from 'lucide-react';
 import { PageRoute } from '../types';
-import { PRODUCTS, MANGA_ITEMS } from '../data/mockData';
+import { PRODUCTS, MANGA_ITEMS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 
 interface AccountModalProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({
   onClose,
   onNavigate,
 }) => {
+    const { products: PRODUCTS, manga: MANGA_ITEMS } = useContent();
   const [activeTab, setActiveTab] = useState<'library' | 'bookmarks' | 'profile'>('library');
 
   if (!isOpen) return null;

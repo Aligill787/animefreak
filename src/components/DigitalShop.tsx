@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingBag, ArrowRight, Download, Check, FileText } from 'lucide-react';
-import { PRODUCTS } from '../data/mockData';
+import { PRODUCTS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { Product, PageRoute } from '../types';
 
 interface DigitalShopProps {
@@ -14,6 +15,7 @@ export const DigitalShop: React.FC<DigitalShopProps> = ({
   onAddToCart,
   onBuyNow,
 }) => {
+    const { products: PRODUCTS } = useContent();
   const [activeFilter, setActiveFilter] = useState<'all' | 'manga-volume' | 'art-pack' | 'wallpapers'>('all');
   const [addedId, setAddedId] = useState<string | null>(null);
 

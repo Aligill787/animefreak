@@ -40,6 +40,7 @@ import { DisclaimerPage } from './pages/legal/DisclaimerPage';
 import { CopyrightDmcaPage } from './pages/legal/CopyrightDmcaPage';
 import { CookiePolicyPage } from './pages/legal/CookiePolicyPage';
 import { RefundPolicyPage } from './pages/legal/RefundPolicyPage';
+import { ContentProvider } from './data/ContentProvider';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>({ type: 'home' });
@@ -116,7 +117,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#08090e] text-slate-100 font-sans selection:bg-purple-600 selection:text-white">
+    <ContentProvider>
+      <div className="min-h-screen flex flex-col bg-[#08090e] text-slate-100 font-sans selection:bg-purple-600 selection:text-white">
       
       {/* Universal Sticky Header */}
       <Header
@@ -326,6 +328,7 @@ export default function App() {
       {/* Cookie Consent Banner */}
       <CookieBanner onNavigate={navigateTo} />
 
-    </div>
+      </div>
+    </ContentProvider>
   );
 }

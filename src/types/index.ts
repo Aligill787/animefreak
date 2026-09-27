@@ -47,6 +47,19 @@ export interface Manga {
   rating: number;
   reviewsCount: number;
   reviews: MangaReview[];
+  status?: 'draft' | 'published' | 'private';
+  featured?: boolean;
+  genres?: string[];
+  chapters?: Chapter[];
+}
+
+export interface Chapter {
+  id: string;
+  mangaId: string;
+  chapterNumber: number;
+  title: string;
+  pages: Array<{ pageNumber: number; imageUrl: string }>;
+  publishedDate?: string;
 }
 
 export interface StoryChapter {
@@ -81,6 +94,13 @@ export interface Product {
   features: string[];
   digitalDownloadInfo: string;
   category: 'manga-volume' | 'art-pack' | 'wallpapers';
+  shortDescription?: string;
+  salePrice?: number;
+  images?: string[];
+  stockStatus?: 'instock' | 'outofstock' | 'onbackorder';
+  downloadable?: boolean;
+  sku?: string;
+  sourceProductId?: number;
 }
 
 export interface CartItem {

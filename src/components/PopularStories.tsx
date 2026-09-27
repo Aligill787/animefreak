@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, Clock, ArrowRight, User } from 'lucide-react';
-import { STORIES } from '../data/mockData';
+  import { useContent } from '../data/ContentProvider';
+  const { stories: STORIES } = useContent();
 import { PageRoute } from '../types';
 
 interface PopularStoriesProps {

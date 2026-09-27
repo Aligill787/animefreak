@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp, ArrowUpRight } from 'lucide-react';
-import { TRENDING_TOPICS } from '../data/mockData';
+  import { useContent } from '../data/ContentProvider';
+  const { trendingTopics: TRENDING_TOPICS } = useContent();
 import { PageRoute } from '../types';
 
 interface TrendingTopicsProps {

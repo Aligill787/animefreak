@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, BookOpen, Sparkles, FileText, ShoppingBag, ArrowRight } from 'lucide-react';
-import { ARTICLES, MANGA_ITEMS, STORIES, PRODUCTS, CATEGORIES } from '../data/mockData';
+import { ARTICLES, MANGA_ITEMS, STORIES, PRODUCTS, CATEGORIES } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 
 interface SearchModalProps {
@@ -14,6 +15,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   onClose,
   onNavigate,
 }) => {
+    const { articles: ARTICLES, manga: MANGA_ITEMS, stories: STORIES, products: PRODUCTS, categories: CATEGORIES } = useContent();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 

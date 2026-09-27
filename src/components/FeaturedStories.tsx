@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
-import { ASSETS } from '../data/mockData';
+import { ASSETS } from '../data/contentRepository';
+  import { useContent } from '../data/ContentProvider';
 import { PageRoute } from '../types';
 
 interface FeaturedStoriesProps {
@@ -12,6 +13,7 @@ export const FeaturedStories: React.FC<FeaturedStoriesProps> = ({
   onNavigate,
   onOpenMangaReader,
 }) => {
+    const { assets: ASSETS } = useContent();
   const featuredItems = [
     {
       id: 'story-1',
